@@ -1,0 +1,11 @@
+{
+  "name": "temp-mail-bot",
+  "version": "1.0.0",
+  "dependencies": {
+    "telegraf": "^4.16.2",
+    "axios": "^1.6.8"
+  },
+  "scripts": {
+    "start": "node api/index.js"
+  }
+}
