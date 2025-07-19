@@ -41,7 +41,7 @@ bot.command('new', async (ctx) => {
 
   try {
     const domainsResponse = await axios.get('https://api.mail.tm/domains');
-    const domain = domainsResponse.data.hydra:member[0].domain;
+    const domain = domainsResponse.data['hydra:member'][0].domain; // Fixed syntax
 
     const email = `user${Date.now()}@${domain}`;
     const password = `pass${Date.now()}`;
@@ -70,7 +70,7 @@ bot.command('check', async (ctx) => {
     const response = await axios.get('https://api.mail.tm/messages', {
       headers: { Authorization: `Bearer ${users[ctx.chat.id].token}` },
     });
-    const messages = response.data.hydra:member;
+    const messages = response.data['hydra:member'];
 
     if (!messages.length) {
       ctx.reply('Your inbox is empty.');
